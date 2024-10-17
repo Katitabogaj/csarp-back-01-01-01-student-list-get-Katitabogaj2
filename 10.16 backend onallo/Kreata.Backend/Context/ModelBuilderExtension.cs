@@ -84,6 +84,7 @@ namespace Kreata.Backend.Context
                 },
                 new Pizzeriak
                 {
+                    Id = Guid.NewGuid(),
                     Name = "Bella Ciao",
                     address = "Szeged",
                 }

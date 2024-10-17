@@ -1,47 +1,44 @@
 ﻿using Kreata.Backend.Datas.Entities;
 using Kreata.Backend.Repos;
 using Microsoft.AspNetCore.Mvc;
-using System.Formats.Tar;
 
 namespace Kreata.Backend.Controllers
 {
-    public class ParentController
+
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ParentController : ControllerBase
     {
-        [ApiController]
-        [Route("api/[controller]")]
-        public class ParentControllers : ControllerBase
+        private IParentRepo _parentRepo;
+
+        public ParentController(IParentRepo parentRepo)
         {
-            private IParentRepo _parentRepo;
+            _parentRepo = parentRepo;
+        }
 
-            public ParentControllers(IParentRepo parentRepo)
+        [HttpGet]
+        public async Task<IActionResult> SelectAllParent()
+        {
+            List<Parent> parents = new();
+            if (_parentRepo is not null)
             {
-                _parentRepo = parentRepo;
+                parents = await _parentRepo.GetAll();
+                return Ok(parents);
             }
+            return BadRequest("Az adaok elérése nem sikerült");
+        }
 
-            [HttpGet]
-            public async Task<IActionResult> SelectAllParent()
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetBy(Guid id)
+        {
+            Parent? parent = new();
+            if (_parentRepo is not null)
             {
-                List<Parent> parents = new();
-                if (_parentRepo is not null)
-                {
-                    parents = await _parentRepo.GetAll();
-                    return Ok(parents);
-                }
-                return BadRequest("Az adaok elérése nem sikerült");
+                parent = await _parentRepo.GetBy(id);
+                if (parent is not null)
+                    return Ok(parent);
             }
-
-            [HttpGet("{id}")]
-            public async Task<IActionResult> GetBy(Guid id)
-            {
-                Parent? parent = new();
-                if (_parentRepo is not null)
-                {
-                    parent = await _parentRepo.GetBy(id);
-                    if (parent is not null)
-                        return Ok(parent);
-                }
-                return BadRequest("A szülő adat elérése nem sikerült.");
-            }
+            return BadRequest("A szülő adat elérése nem sikerült.");
         }
     }
 }

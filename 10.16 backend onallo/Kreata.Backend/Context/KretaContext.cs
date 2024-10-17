@@ -9,6 +9,7 @@ namespace Kreata.Backend.Context
         private DbSet<Teacher> _teachers;
         private DbSet<Parent> _parents;
         private DbSet<Pizzeriak> _pizzeriak;
+        private DbSet<Pasta> _pastas;
 
         public KretaContext(DbContextOptions<KretaContext> options)
             : base(options)
@@ -25,5 +26,6 @@ namespace Kreata.Backend.Context
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Parent> Parents { get; set; }
         public DbSet<Pizzeriak> Pizzeriaks { get; set; }
+        public DbSet<Pasta> Pastas { get; set; }
     }
 }
