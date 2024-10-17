@@ -48,6 +48,5 @@ namespace Kreata.Backend.Extensions
             services.AddScoped<IParentRepo, ParentRepo>();
             services.AddScoped<IPizzeriakRepo, PizzeriakRepo>();
         }
-        //asd
     }
 }
