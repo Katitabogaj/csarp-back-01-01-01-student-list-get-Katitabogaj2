@@ -4,7 +4,7 @@ namespace Kreata.Backend.Repos
 {
     public interface IPizzeriakRepo
     {
-        Task<List<Parent>> GetAll();
-        Task<Parent?> GetBy(Guid id);
+        Task<List<Pizzeriak>> GetAll();
+        Task<Pizzeriak?> GetBy(Guid id);
     }
 }

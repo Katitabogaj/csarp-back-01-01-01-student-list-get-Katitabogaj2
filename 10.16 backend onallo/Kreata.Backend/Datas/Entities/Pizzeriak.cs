@@ -9,14 +9,14 @@
             address = string.Empty;
 
         }
-        public Pizza(string name, string address)
+        public Pizzeriak(string name, string address)
         {
 
             Name = name;
 
 
         }
-        public Pizza(Guid id, string name, string address)
+        public Pizzeriak(Guid id, string name, string address)
         {
 
             Name = name;

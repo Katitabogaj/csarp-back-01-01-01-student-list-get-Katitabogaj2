@@ -13,14 +13,14 @@ namespace Kreata.Backend.Repos
             {
                 _dbContext = dbContext;
             }
-            public async Task<List<Parent>> GetAll()
+            public async Task<List<Pizzeriak>> GetAll()
             {
-                return await _dbContext.Parents.ToListAsync();
+                return await _dbContext.Pizzeriaks.ToListAsync();
             }
 
-            public async Task<Parent?> GetBy(Guid id)
+            public async Task<Pizzeriak?> GetBy(Guid id)
             {
-                return await _dbContext.Parents.FirstOrDefaultAsync(t => t.Id == id);
+                return await _dbContext.Pizzeriaks.FirstOrDefaultAsync(t => t.Id == id);
             }
     }
 }

@@ -74,18 +74,17 @@ namespace Kreata.Backend.Context
                 }
             };
 
-            List<Pizza> pizzeriak = new List<Pizza>
+            List<Pizzeriak> pizzeriak = new List<Pizzeriak>
             {
-                new Pizza
+                new Pizzeriak
                 {
                     Id = Guid.NewGuid(),
                     Name = "Pacek Pizza",
                     address = "Ulánbátor",
                 },
-                new Pizza
+                new Pizzeriak
                 {
                     Name = "Bella Ciao",
-                    BirthsDay = new DateTime(2020, 2, 2),
                     address = "Szeged",
                 }
             };
@@ -94,7 +93,7 @@ namespace Kreata.Backend.Context
             modelBuilder.Entity<Student>().HasData(students);
             modelBuilder.Entity<Teacher>().HasData(teachers);
             modelBuilder.Entity<Parent>().HasData(parents);
-            modelBuilder.Entity<Pizza>().HasData(pizzeriak);
+            modelBuilder.Entity<Pizzeriak>().HasData(pizzeriak);
         }
     }
 }

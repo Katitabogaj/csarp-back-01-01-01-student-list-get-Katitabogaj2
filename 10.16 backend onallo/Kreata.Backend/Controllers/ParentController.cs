@@ -19,7 +19,7 @@ namespace Kreata.Backend.Controllers
             }
 
             [HttpGet]
-            public async Task<IActionResult> SelectAllTeacher()
+            public async Task<IActionResult> SelectAllParent()
             {
                 List<Parent> parents = new();
                 if (_parentRepo is not null)

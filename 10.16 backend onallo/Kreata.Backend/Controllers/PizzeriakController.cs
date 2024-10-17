@@ -1,6 +1,7 @@
 ﻿using Kreata.Backend.Datas.Entities;
 using Kreata.Backend.Repos;
 using Microsoft.AspNetCore.Mvc;
+using System.Formats.Tar;
 
 namespace Kreata.Backend.Controllers
 {
@@ -18,9 +19,9 @@ namespace Kreata.Backend.Controllers
                 }
 
                 [HttpGet]
-                public async Task<IActionResult> SelectAllTeacher()
+                public async Task<IActionResult> SelectAllPizzeria()
                 {
-                    List<Pizza> pizzeriak = new();
+                    List<Pizzeriak> pizzeriak = new();
                     if (_pizzeriakRepo is not null)
                     {
                     pizzeriak = await _pizzeriakRepo.GetAll();
@@ -32,7 +33,7 @@ namespace Kreata.Backend.Controllers
                 [HttpGet("{id}")]
                 public async Task<IActionResult> GetBy(Guid id)
                 {
-                    Pizza? pizzeria = new();
+                    Pizzeriak? pizzeria = new();
                     if (_pizzeriakRepo is not null)
                     {
                         pizzeria = await _pizzeriakRepo.GetBy(id);
