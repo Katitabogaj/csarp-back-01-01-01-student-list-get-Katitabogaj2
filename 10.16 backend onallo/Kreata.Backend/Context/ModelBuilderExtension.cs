@@ -89,12 +89,30 @@ namespace Kreata.Backend.Context
                     address = "Szeged",
                 }
             };
+            List<Pasta> pasta = new List<Pasta>
+            {
+                new Pasta
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Pacek Pizza",
+                    Kalories = 3000 ,
+                    Price = 1990,
+                },
+                new Pasta
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Bella Ciao",
+                    Kalories = 2500,
+                    Price = 1850,
+                }
+            };
 
             // Students
             modelBuilder.Entity<Student>().HasData(students);
             modelBuilder.Entity<Teacher>().HasData(teachers);
             modelBuilder.Entity<Parent>().HasData(parents);
             modelBuilder.Entity<Pizzeriak>().HasData(pizzeriak);
+            modelBuilder.Entity<Pasta>().HasData(pasta);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Kreata.Backend.Context;
+using Kreata.Backend.Datas.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Kreata.Backend.Repos
@@ -15,6 +16,11 @@ namespace Kreata.Backend.Repos
         {
             return await _dbContext.Pastas.ToListAsync();
         }
-        public async Task<Pasta?>
+
+        public async Task<Pasta?> GetBy(Guid id)
+        {
+            return await _dbContext.Pastas.FirstOrDefaultAsync(t => t.Id == id);
+        }
+
     }
 }
